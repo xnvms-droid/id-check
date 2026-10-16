@@ -307,9 +307,9 @@
 
 <script>
 /* ====================================================================
-   설정: Apps Script 웹 앱 배포 후 발급되는 URL을 입력하십시오.
+   설정: Apps Script 웹 앱 배포 URL
    ==================================================================== */
-const GAS_URL = 'https://script.google.com/macros/s/여기에_배포ID를_입력/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycby-uUV-fk2o1S-0EzdggO7_koWMqE0Yffdnnjvs2KN8582hUFYzr06ZVNKsNZMmvPwwBQ/exec';
 
 /* 운영 시간 기준(삭제 시각) – 안내 문구용 */
 const DELETE_HOUR = 18;
@@ -528,7 +528,6 @@ const DELETE_HOUR = 18;
   /* ---------- 제출 ---------- */
   $('btn-submit').addEventListener('click', async function(){
     if(!validate()) return;
-    if(GAS_URL.indexOf('여기에_배포ID') !== -1){ alertMsg('관리자 설정이 완료되지 않았습니다. (Apps Script URL 미설정)'); return; }
     const ok = window.confirm('예시 사진처럼 ① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리만 보이고\n나머지는 모두 가리고 촬영하셨습니까?\n[확인]을 누르면 제출됩니다.');
     if(!ok) return;
     const btn = this;
