@@ -166,9 +166,6 @@
   <section class="card" id="sec-info">
     <h2><span class="step">2</span>수강생 정보 입력</h2>
 
-    <label class="field" for="course">교육명</label>
-    <input type="text" id="course" placeholder="예) 2026-10-20 실시간 보수교육" maxlength="60" autocomplete="off">
-
     <label class="field" for="name">성명</label>
     <input type="text" id="name" placeholder="예) 홍길동" maxlength="20" autocomplete="name">
 
@@ -214,6 +211,16 @@
       </ol>
     </div>
 
+    <div class="alert warn">
+      <strong>📱 모바일 신분증만 가지고 계신 경우</strong>
+      <ul style="margin:6px 0 0;padding-left:20px">
+        <li>모바일 신분증 <b>화면 캡처(스크린샷)는 제출할 수 없습니다.</b> (모바일 신분증 앱은 캡처가 차단되며, 캡처본은 신분증으로 인정되지 않습니다)</li>
+        <li><b>가급적 실물 신분증(주민등록증·운전면허증)을 준비</b>해 주십시오.</li>
+        <li>실물 신분증이 없는 경우, <b>다른 기기(가족·동료의 휴대전화, 태블릿, PC 등)</b>로 이 페이지를 열어 <b>모바일 신분증이 켜진 휴대전화 화면을 촬영</b>합니다. (실물 신분증과 같은 기준으로 ①②③ 외 부분은 가립니다)</li>
+        <li>다른 기기도 없는 경우 <b>교육 담당자에게 말씀</b>해 주십시오. 담당자가 별도로 확인 방법을 안내합니다.</li>
+      </ul>
+    </div>
+
     <div id="cam-area" class="hidden" style="margin-top:12px">
       <video id="video" autoplay playsinline muted></video>
       <div class="row">
@@ -224,9 +231,9 @@
 
     <div id="pick-area" style="margin-top:12px">
       <button type="button" class="btn primary" id="btn-cam">📷 카메라로 사진 찍기</button>
-      <button type="button" class="btn ghost" id="btn-file">🖼 휴대전화 카메라/앨범에서 선택</button>
-      <input type="file" id="file" accept="image/*" capture="environment" class="hidden">
-      <p class="muted">※ PC 웹캠이 없거나 화질이 낮은 경우, 이 페이지를 휴대전화로 열어 촬영하시기 바랍니다.</p>
+      <p class="muted">※ 카메라 사용 권한을 묻는 창이 나오면 <b>「허용」</b>을 눌러 주십시오.<br>
+        ※ 카카오톡 등 앱 안에서 열면 카메라가 작동하지 않을 수 있습니다. 이 경우 <b>크롬·사파리 등 인터넷 브라우저</b>로 다시 열어 주십시오.<br>
+        ※ PC 웹캠이 없거나 화질이 낮은 경우, 이 페이지를 휴대전화로 열어 촬영하시기 바랍니다.</p>
     </div>
 
     <div id="preview-area" class="hidden" style="margin-top:12px">
@@ -245,7 +252,7 @@
 
     <table class="notice">
       <tr><th>수집·이용 목적</th><td>실시간(Zoom) 보수교육 수강생 본인 확인 및 대리수강 방지(출결 확인)</td></tr>
-      <tr><th>수집 항목</th><td>교육명, 성명, 생년월일(6자리), 주민등록번호 뒷자리 첫째 자리(성별 확인), 신분증 사진(얼굴 사진·성 첫 글자·생년월일 앞 2자리 외 가림), 서명, 제출 일시</td></tr>
+      <tr><th>수집 항목</th><td>성명, 생년월일(6자리), 주민등록번호 뒷자리 첫째 자리(성별 확인), 신분증 사진(얼굴 사진·성 첫 글자·생년월일 앞 2자리 외 가림), 서명, 제출 일시</td></tr>
       <tr><th>보유·이용 기간</th><td><b style="color:var(--danger)">제출 당일 18시 일괄 삭제(파기)</b></td></tr>
       <tr><th>보관 장소</th><td>협회 Google 공유드라이브(Google LLC, 국외 소재 서버) – 담당자 외 접근 제한</td></tr>
       <tr><th>동의 거부 권리</th><td>동의를 거부할 수 있습니다. 거부 시 Zoom 화면을 통한 담당자 대조 확인으로 대체하며, 이 경우 교육 담당자에게 말씀해 주십시오.</td></tr>
@@ -307,7 +314,7 @@
 
 <script>
 /* ====================================================================
-   설정: Apps Script 웹 앱 배포 URL
+   설정: Apps Script 웹 앱 배포 후 발급되는 URL을 입력하십시오.
    ==================================================================== */
 const GAS_URL = 'https://script.google.com/macros/s/AKfycby-uUV-fk2o1S-0EzdggO7_koWMqE0Yffdnnjvs2KN8582hUFYzr06ZVNKsNZMmvPwwBQ/exec';
 
@@ -317,12 +324,6 @@ const DELETE_HOUR = 18;
 (function(){
   'use strict';
   const $ = (id) => document.getElementById(id);
-
-  /* URL 파라미터로 교육명 자동 입력: index.html?course=교육명 */
-  try {
-    const p = new URLSearchParams(location.search);
-    if (p.get('course')) { $('course').value = p.get('course').slice(0,60); }
-  } catch(e) {}
 
   /* ---------- 체크박스 강조 표시 ---------- */
   document.querySelectorAll('[data-check]').forEach(function(lb){
@@ -337,7 +338,7 @@ const DELETE_HOUR = 18;
   /* ---------- 입력값 정리 ---------- */
   $('birth').addEventListener('input', function(){ this.value = this.value.replace(/\D/g,'').slice(0,6); if(this.value.length===6) $('gender').focus(); validate(); });
   $('gender').addEventListener('input', function(){ this.value = this.value.replace(/[^1-8]/g,'').slice(0,1); validate(); });
-  ['name','course'].forEach(id => $(id).addEventListener('input', validate));
+  $('name').addEventListener('input', validate);
 
   function validBirth(v){
     if(!/^\d{6}$/.test(v)) return false;
@@ -351,7 +352,7 @@ const DELETE_HOUR = 18;
 
   $('btn-cam').addEventListener('click', async function(){
     if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-      alertMsg('이 브라우저에서는 카메라를 바로 사용할 수 없습니다. [휴대전화 카메라/앨범에서 선택]을 이용해 주십시오.');
+      alertMsg('이 브라우저에서는 카메라를 사용할 수 없습니다. 크롬·사파리 등 인터넷 브라우저로 다시 열어 주시거나, 교육 담당자에게 문의해 주십시오.');
       return;
     }
     try{
@@ -360,7 +361,7 @@ const DELETE_HOUR = 18;
       $('cam-area').classList.remove('hidden');
       $('pick-area').classList.add('hidden');
     }catch(e){
-      alertMsg('카메라 권한이 거부되었거나 카메라를 찾을 수 없습니다. [휴대전화 카메라/앨범에서 선택]을 이용해 주십시오.');
+      alertMsg('카메라 권한이 거부되었거나 카메라를 찾을 수 없습니다. 브라우저 설정에서 카메라 권한을 「허용」으로 바꾼 뒤 다시 시도하시거나, 교육 담당자에게 문의해 주십시오.');
     }
   });
   $('btn-cam-close').addEventListener('click', stopCam);
@@ -373,19 +374,6 @@ const DELETE_HOUR = 18;
     if(!video.videoWidth) return;
     drawToPreview(video, video.videoWidth, video.videoHeight);
     stopCam();
-  });
-
-  $('btn-file').addEventListener('click', ()=> $('file').click());
-  $('file').addEventListener('change', function(){
-    const f = this.files && this.files[0];
-    if(!f) return;
-    if(!/^image\//.test(f.type)){ alertMsg('이미지 파일만 제출할 수 있습니다.'); return; }
-    const url = URL.createObjectURL(f);
-    const img = new Image();
-    img.onload = function(){ drawToPreview(img, img.naturalWidth, img.naturalHeight); URL.revokeObjectURL(url); };
-    img.onerror = function(){ alertMsg('이미지를 불러올 수 없습니다. 다른 사진을 선택해 주십시오.'); };
-    img.src = url;
-    this.value = '';
   });
 
   function drawToPreview(src, w, h){
@@ -448,7 +436,6 @@ const DELETE_HOUR = 18;
   function validate(){
     const todo = [];
     if(!$('c-basis').checked) todo.push('1단계: 근거 확인 체크');
-    if(!$('course').value.trim()) todo.push('2단계: 교육명 입력');
     if($('name').value.trim().length < 2) todo.push('2단계: 성명 입력');
     if(!validBirth($('birth').value)) todo.push('2단계: 생년월일 6자리 입력');
     if(!/^[1-8]$/.test($('gender').value)) todo.push('2단계: 뒷자리 첫째 자리 입력');
@@ -491,7 +478,6 @@ const DELETE_HOUR = 18;
     g.fillStyle = '#111'; g.font = '30px '+FONT;
     let y = 170;
     const rows = [
-      ['교육명', data.course],
       ['성명', data.name],
       ['생년월일', data.birth + ' - ' + data.gender + '●●●●●●'],
       ['제출일시', data.submittedAt],
@@ -528,13 +514,13 @@ const DELETE_HOUR = 18;
   /* ---------- 제출 ---------- */
   $('btn-submit').addEventListener('click', async function(){
     if(!validate()) return;
+    if(GAS_URL.indexOf('여기에_배포ID') !== -1){ alertMsg('관리자 설정이 완료되지 않았습니다. (Apps Script URL 미설정)'); return; }
     const ok = window.confirm('예시 사진처럼 ① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리만 보이고\n나머지는 모두 가리고 촬영하셨습니까?\n[확인]을 누르면 제출됩니다.');
     if(!ok) return;
     const btn = this;
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span>제출 중입니다…';
     const data = {
-      course: $('course').value.trim(),
       name: $('name').value.trim(),
       birth: $('birth').value,
       gender: $('gender').value,
