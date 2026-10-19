@@ -62,6 +62,7 @@
   .hidden{display:none !important}
   .notice{margin:0;padding-left:20px;font-size:14px}
   .notice li{margin:6px 0}
+  .resp{margin:0 0 10px;padding:10px 12px;border-radius:10px;background:var(--danger-weak);border:2px solid var(--danger);color:#7f1414;font-size:14px;line-height:1.6}
   .cam-tip{margin:10px 0 0;padding:10px 12px;border-radius:10px;background:#fff4e0;border:2px solid #b45309;color:#6b3405;font-size:14px;line-height:1.6}
   .cam-tip b{color:#9a3412}
   .mobile-id{display:inline-block;margin-top:4px;padding:6px 10px;border-radius:8px;background:var(--brand-weak);color:var(--brand);font-size:13.5px}
@@ -178,7 +179,12 @@
   <!-- 4. 서명 -->
   <section class="card" id="sec-sign">
     <h2><span class="step">4</span>서명</h2>
-    <p class="rule" style="font-weight:600">본인은 개인정보 수집 사실과 당일 18시 일괄 삭제를 확인하고 직접 서명합니다.</p>
+    <div class="resp">
+      <b>⚠ 가림 책임 안내</b><br>
+      본인은 신분증의 ① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리 외 정보를 가리도록 안내받았습니다.
+      안내에도 불구하고 <b>가리지 않고 제출하여 발생하는 책임은 본인에게 있으며</b>, 이 경우 해당 사진은 즉시 삭제되고 재제출을 요청받을 수 있습니다.
+    </div>
+    <p class="rule" style="font-weight:600">본인은 개인정보 수집 사실, 당일 18시 일괄 삭제 및 위 가림 책임 안내를 확인하고 직접 서명합니다.</p>
     <div class="sig-box">
       <canvas id="sig"></canvas>
       <div class="sig-hint" id="sig-hint">여기에 서명해 주십시오</div>
@@ -388,7 +394,8 @@ const DELETE_HOUR = 18;
     g.drawImage(sig, M + (photoW - sw)/2, y + (sigH - sh)/2, sw, sh);
     y += sigH + 50;
     g.fillStyle = '#333'; g.font = '22px '+FONT;
-    g.fillText('본인은 개인정보 수집 사실과 당일 ' + DELETE_HOUR + '시 일괄 삭제를 확인하고 직접 서명하였습니다.', M, y);
+    g.fillText('본인은 개인정보 수집 사실, 당일 ' + DELETE_HOUR + '시 일괄 삭제 및 가림 책임 안내를 확인하고 직접 서명하였습니다.', M, y);
+    g.fillText('(①②③ 외 정보를 가리지 않고 제출하여 발생하는 책임은 본인에게 있음)', M, y + 34);
     return c.toDataURL('image/jpeg', 0.85);
   }
 
