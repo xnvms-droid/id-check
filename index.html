@@ -10,218 +10,109 @@
     --bg:#f4f6f9; --card:#ffffff; --text:#1d2433; --muted:#5b6475; --line:#d9dee7;
     --brand:#7a1f5c; --brand-weak:#f6e9f1;
     --danger:#c62828; --danger-weak:#fdecea;
-    --warn:#b45309; --warn-weak:#fff4e0;
     --ok:#1b7f3b; --ok-weak:#e7f5ec;
   }
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
     line-height:1.55;-webkit-text-size-adjust:100%}
-  .wrap{max-width:720px;margin:0 auto;padding:16px 16px 80px}
-  header{background:var(--brand);color:#fff;border-radius:14px;padding:18px 18px 16px;margin-bottom:14px}
-  header h1{margin:0 0 4px;font-size:21px}
-  header p{margin:0;font-size:14px;opacity:.92}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+  .wrap{max-width:640px;margin:0 auto;padding:16px 16px 60px}
+  header{background:var(--brand);color:#fff;border-radius:14px;padding:16px 18px;margin-bottom:12px}
+  header h1{margin:0 0 4px;font-size:20px}
+  header p{margin:0;font-size:14px;opacity:.95}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
   .card h2{margin:0 0 10px;font-size:17px;display:flex;align-items:center;gap:8px}
   .step{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
     background:var(--brand);color:#fff;font-size:14px;flex:none}
-  .muted{color:var(--muted);font-size:14px}
-  .alert{border-radius:12px;padding:14px 14px;margin:10px 0;font-size:15px}
+  .muted{color:var(--muted);font-size:13px;margin:6px 0 0}
+  .alert{border-radius:12px;padding:12px 14px;margin:10px 0;font-size:15px}
   .alert.danger{background:var(--danger-weak);border:2px solid var(--danger);color:#7f1414}
-  .alert.warn{background:var(--warn-weak);border:2px solid var(--warn);color:#6b3405}
   .alert.ok{background:var(--ok-weak);border:2px solid var(--ok);color:#0f4d24}
-  .alert strong{font-size:16px}
-  .big{font-size:18px;font-weight:800}
-  .blink{animation:blink 1.2s ease-in-out infinite}
-  @keyframes blink{50%{opacity:.45}}
-  @media (prefers-reduced-motion:reduce){.blink{animation:none}}
+  .big{font-size:17px;font-weight:800}
   .checkme{display:inline-block;background:var(--danger);color:#fff;font-weight:800;border-radius:6px;
-    padding:1px 8px;font-size:13px;margin-left:6px;vertical-align:middle}
-  label.field{display:block;font-weight:700;margin:12px 0 6px}
+    padding:0 7px;font-size:12px;margin-left:4px;vertical-align:middle}
+  label.field{display:block;font-weight:700;margin:10px 0 6px}
   input[type=text],input[type=tel]{width:100%;font-size:17px;padding:12px;border:1.5px solid var(--line);
     border-radius:10px;background:#fff;color:var(--text)}
   input:focus{outline:3px solid var(--brand-weak);border-color:var(--brand)}
   .rrn{display:flex;align-items:center;gap:8px}
   .rrn input{text-align:center;letter-spacing:2px}
-  .rrn .birth{flex:1 1 auto}
-  .rrn .gender{flex:0 0 64px}
-  .rrn .mask{font-size:20px;letter-spacing:3px;color:var(--muted);white-space:nowrap}
+  .rrn .birth{flex:1 1 auto;min-width:0}
+  .rrn .gender{flex:0 0 60px}
+  .rrn .mask{font-size:18px;letter-spacing:2px;color:var(--muted);white-space:nowrap}
   .check{display:flex;gap:10px;align-items:flex-start;padding:12px;border:2px solid var(--line);
     border-radius:10px;margin:8px 0;cursor:pointer;background:#fff}
   .check input{width:24px;height:24px;flex:none;margin:1px 0 0;accent-color:var(--brand)}
   .check.need{border-color:var(--danger);background:#fff7f7}
   .check.done{border-color:var(--ok);background:var(--ok-weak)}
   .check span{font-size:15px}
-  details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;background:#fafbfc}
-  summary{cursor:pointer;font-weight:700}
-  .basis li{margin:6px 0;font-size:14px}
-  .basis q{display:block;background:#fff;border-left:4px solid var(--brand);padding:6px 10px;margin:4px 0;quotes:none;color:#333}
-  .example{display:grid;grid-template-columns:1fr;gap:10px}
-  .example img{width:100%;max-width:420px;border-radius:10px;border:3px solid var(--ok);display:block;margin:0 auto}
-  .ex-cap{text-align:center;font-weight:800;color:var(--ok)}
+  .example img{width:100%;max-width:420px;border-radius:10px;border:3px solid var(--ok);display:block;margin:8px auto 0}
+  .rule{font-size:15px;font-weight:700;margin:0}
+  .rule b{color:var(--ok)}
   .btn{display:block;width:100%;font-size:17px;font-weight:800;padding:14px;border-radius:12px;border:0;
-    cursor:pointer;margin:8px 0}
+    cursor:pointer;margin:10px 0 0}
   .btn.primary{background:var(--brand);color:#fff}
   .btn.ghost{background:#fff;color:var(--brand);border:2px solid var(--brand)}
   .btn.submit{background:var(--danger);color:#fff;font-size:19px;padding:16px}
   .btn:disabled{opacity:.45;cursor:not-allowed}
   .row{display:flex;gap:8px}
   .row .btn{flex:1}
-  video,#preview{width:100%;border-radius:10px;background:#111;display:block}
+  video,#preview{width:100%;border-radius:10px;background:#111;display:block;margin-top:10px}
   #preview{background:#fff;border:2px solid var(--line)}
   .hidden{display:none !important}
-  .sig-box{border:2px dashed var(--brand);border-radius:10px;background:#fff;position:relative;touch-action:none}
-  #sig{width:100%;height:180px;display:block;border-radius:10px}
+  .notice{margin:0;padding-left:20px;font-size:14px}
+  .notice li{margin:6px 0}
+  details{margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fafbfc;font-size:13px}
+  summary{cursor:pointer;font-weight:700;color:var(--muted)}
+  details ul{margin:6px 0 0;padding-left:18px}
+  .sig-box{border:2px dashed var(--brand);border-radius:10px;background:#fff;position:relative;touch-action:none;margin-top:10px}
+  #sig{width:100%;height:170px;display:block;border-radius:10px}
   .sig-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#b9b9c4;
     font-size:18px;pointer-events:none}
   .result{text-align:center}
   .result .no{font-size:22px;font-weight:900;color:var(--brand)}
-  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:16px}
   .spinner{display:inline-block;width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;
     border-radius:50%;animation:spin 1s linear infinite;vertical-align:-3px;margin-right:6px}
   @keyframes spin{to{transform:rotate(360deg)}}
-  table.notice{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
-  table.notice th,table.notice td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
-  table.notice th{background:#f1f3f7;width:30%;white-space:nowrap}
-  table.show-hide th.ok-th{background:var(--ok-weak);color:var(--ok)}
-  table.show-hide th.no-th{background:var(--danger-weak);color:var(--danger)}
-  table.show-hide td{font-size:15px;line-height:1.7}
-  .ex-desc{margin:4px 0 0;padding-left:20px;font-size:15px}
-  .ex-desc li{margin:6px 0;list-style:none;margin-left:-20px}
+  @media (prefers-reduced-motion:reduce){.spinner{animation:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <h1>실시간(Zoom) 보수교육 신분증 확인</h1>
-    <p>부산광역시사회복지사협회 · 대리수강 방지를 위한 본인 확인 절차</p>
+    <h1>실시간 보수교육 신분증 확인</h1>
+    <p>「사회복지사 보수교육 운영 안내」 지침에 따라 매 과목 신분증 확인이 필수입니다.</p>
   </header>
 
-  <div class="alert danger">
-    <div class="big blink">⚠ 반드시 아래 예시 사진처럼 촬영한 후 [제출]을 눌러 주십시오.</div>
-    <div>사진에는 <strong>① 얼굴 사진 ② 성(姓) 첫 글자 ③ 생년월일 앞 2자리</strong>만 보여야 합니다.
-      나머지는 모두 손가락으로 가린 상태에서 촬영해야 하며, 가리지 않은 사진은 접수되지 않을 수 있습니다.</div>
-  </div>
-
-  <div class="alert warn">
-    <strong>📌 수집 정보는 제출 당일 18시에 일괄 삭제(파기) 처리됩니다.</strong>
-  </div>
-
-  <!-- 1. 근거 -->
-  <section class="card" id="sec-basis">
-    <h2><span class="step">1</span>신분증 확인 근거 안내</h2>
-    <p class="muted">본 절차는 아래 법령 및 지침에 근거하여 시행합니다.</p>
-
-    <details open>
-      <summary>① 「사회복지사업법」 제13조제2항 (보수교육 의무)</summary>
-      <ul class="basis">
-        <li><q>사회복지법인 또는 사회복지시설에 종사하는 사회복지사는 정기적으로 인권에 관한 내용이 포함된 보수교육(補修敎育)을 받아야 한다.</q></li>
-        <li>같은 조 제4항 및 같은 법 시행규칙 제5조제6항에 따라 보수교육은 협회 등에 위탁하여 실시합니다.</li>
-      </ul>
-    </details>
-
-    <details open>
-      <summary>② 「2026 사회복지사 보수교육 운영 안내」 (한국사회복지사협회)</summary>
-      <ul class="basis">
-        <li><b>보수교육 실시기관 준수사항(32쪽)</b>
-          <q>수강생 출석 확인 철저 – 1회 교육 운영 시 매 과목마다 출석 확인과 함께 신분증 확인(1회 이상) 필수</q></li>
-        <li><b>출결기준(39쪽)</b>
-          <q>교육 실시기관은 교육 시 매 과목별 출석을 확인하고, 1회 이상 수강생 신분증을 확인해야 함</q></li>
-        <li><b>교육 신청 취소 및 수강료 환불(39쪽)</b>
-          <q>교육 당일 교육 출석기준에 미치지 못하는 경우 수강료 환불이나 보수교육 평점 인정 불가(대리출석, 지각, 중간퇴실 등)</q></li>
-        <li><b>평점인정 기준(40쪽)</b>
-          <q>실시간교육: zoom, teams 등을 활용한 실시간 송출 강의</q>
-          → 실시간 교육도 집합교육과 동일하게 신분증 확인 대상입니다.</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>③ 「개인정보 보호법」 관련 조항</summary>
-      <ul class="basis">
-        <li><b>제15조제1항제1호·제2항</b> – 정보주체의 동의를 받아 수집하며, 수집 목적·항목·보유기간·거부권을 사전에 알립니다.</li>
-        <li><b>제3조·제16조</b> – 본인 확인에 필요한 최소한의 정보만 수집합니다.</li>
-        <li><b>제24조의2</b> – 주민등록번호는 수집하지 않습니다. (뒷자리는 성별 확인용 <b>첫째 자리 1개</b>만 입력받으며, 사진에서는 생년월일 앞 2자리 외 모두 가려야 합니다.)</li>
-        <li><b>제21조</b> – 보유기간(제출 당일 18시) 경과 시 지체 없이 파기합니다.</li>
-        <li><b>제28조의8</b> – 제출 자료는 Google 클라우드(국외 소재 서버)에 일시 보관됩니다.</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>④ 협회 교육 신청 안내문</summary>
-      <ul class="basis">
-        <li><q>신원(본인) 확인(신분증 지참) 및 출석 서명 필수 (대리 서명 불가)</q></li>
-        <li><q>교육비 환불 불가 상황: … 대리출석 확인될 시 …</q></li>
-        <li><q>교육 인정 불가한 상황: … 대리출석 시 …</q></li>
-      </ul>
-    </details>
-
-    <label class="check need" data-check>
-      <input type="checkbox" id="c-basis">
-      <span>위 근거에 따라 신분증 확인 절차가 시행됨을 확인하였습니다. <span class="checkme">체크해주세요!!</span></span>
-    </label>
-  </section>
-
-  <!-- 2. 정보 입력 -->
+  <!-- 1. 정보 입력 -->
   <section class="card" id="sec-info">
-    <h2><span class="step">2</span>수강생 정보 입력</h2>
+    <h2><span class="step">1</span>이름·생년월일 입력</h2>
 
     <label class="field" for="name">성명</label>
     <input type="text" id="name" placeholder="예) 홍길동" maxlength="20" autocomplete="name">
 
-    <label class="field" for="birth">생년월일(주민등록번호 앞 6자리) – 성별 확인용 뒷자리 첫째 자리</label>
+    <label class="field" for="birth">생년월일 6자리 – 뒷자리 첫째 자리</label>
     <div class="rrn">
       <input type="tel" class="birth" id="birth" placeholder="예) 920101" maxlength="6" inputmode="numeric" autocomplete="off">
       <span>-</span>
       <input type="tel" class="gender" id="gender" placeholder="1" maxlength="1" inputmode="numeric" autocomplete="off">
       <span class="mask">●●●●●●</span>
     </div>
-    <p class="muted">※ 주민등록번호 뒷자리는 <b>첫째 자리 1개만</b> 입력합니다. 나머지 6자리는 수집하지 않습니다.</p>
+    <p class="muted">※ 뒷자리는 성별 확인용 첫째 자리 1개만 입력합니다.</p>
   </section>
 
-  <!-- 3. 촬영 -->
+  <!-- 2. 촬영 -->
   <section class="card" id="sec-photo">
-    <h2><span class="step">3</span>신분증 촬영</h2>
-
-    <div class="alert danger">
-      <div class="big">⚠ 반드시 예시 사진처럼 촬영해 주십시오!</div>
-      <div style="margin-top:4px">신분증에서 <b>아래 3가지만 보이고</b>, 나머지는 <b>모두 손가락으로 가려야</b> 합니다.</div>
-    </div>
-
-    <table class="notice show-hide">
-      <tr><th class="ok-th">✔ 보여야 할 것<br>(3가지만)</th>
-        <td><b>① 얼굴 사진</b> – 본인 얼굴이 선명하게 보이도록<br>
-            <b>② 성(姓) 첫 글자</b> – 예) 「홍길동」 → <b>「홍」</b>만 보이고 「길동」은 가림<br>
-            <b>③ 생년월일 앞 2자리</b> – 예) 「920101」 → <b>「92」</b>만 보이고 「0101」은 가림</td></tr>
-      <tr><th class="no-th">✖ 가려야 할 것<br>(나머지 전부)</th>
-        <td>이름(성 제외), 생년월일 3번째 자리부터, 주민등록번호 뒷자리, 주소,
-            운전면허번호·여권번호, 면허 종류, 발급일 등 <b>①②③ 외 모든 정보</b></td></tr>
-    </table>
+    <h2><span class="step">2</span>신분증 촬영</h2>
+    <p class="rule">예시처럼 <b>① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리</b>만 보이게 하고, 나머지는 손가락으로 가린 뒤 촬영하십시오.</p>
 
     <div class="example">
       <img src="assets/example.jpg" alt="신분증 촬영 예시 그림: 얼굴 사진, 성 첫 글자 '홍', 생년월일 앞 2자리 '92'만 보이고 나머지는 손가락으로 가린 모습">
-      <div class="ex-cap">▲ 촬영 예시 – 초록색 ①②③만 보이고 나머지는 가려야 합니다</div>
-      <ol class="ex-desc">
-        <li><b>① 얼굴 사진</b>: 손가락이 얼굴을 덮지 않도록 신분증 왼쪽(사진 쪽)을 비워 둡니다.</li>
-        <li><b>② 성 첫 글자</b>: 성명 칸에서 <b>첫 글자(예: 홍)</b> 바로 오른쪽부터 손가락으로 덮습니다.</li>
-        <li><b>③ 생년월일 앞 2자리</b>: 번호 칸에서 <b>앞 2자리(예: 92)</b> 바로 오른쪽부터 손가락으로 덮습니다.</li>
-        <li>그 외 이름 나머지, 번호 뒷자리, 주소, 발급일, 면허번호 등은 <b>보이면 안 됩니다.</b>
-          손가락으로 모두 가리기 어려우면 종이나 메모지로 덮고 촬영하셔도 됩니다.</li>
-        <li>※ 위 그림은 이해를 돕기 위한 예시 그림이며 실제 신분증이 아닙니다.</li>
-      </ol>
     </div>
 
-    <div class="alert warn">
-      <strong>📱 모바일 신분증만 가지고 계신 경우</strong>
-      <ul style="margin:6px 0 0;padding-left:20px">
-        <li>모바일 신분증 <b>화면 캡처(스크린샷)는 제출할 수 없습니다.</b> (모바일 신분증 앱은 캡처가 차단되며, 캡처본은 신분증으로 인정되지 않습니다)</li>
-        <li><b>가급적 실물 신분증(주민등록증·운전면허증)을 준비</b>해 주십시오.</li>
-        <li>실물 신분증이 없는 경우, <b>다른 기기(가족·동료의 휴대전화, 태블릿, PC 등)</b>로 이 페이지를 열어 <b>모바일 신분증이 켜진 휴대전화 화면을 촬영</b>합니다. (실물 신분증과 같은 기준으로 ①②③ 외 부분은 가립니다)</li>
-        <li>다른 기기도 없는 경우 <b>교육 담당자에게 말씀</b>해 주십시오. 담당자가 별도로 확인 방법을 안내합니다.</li>
-      </ul>
-    </div>
-
-    <div id="cam-area" class="hidden" style="margin-top:12px">
+    <div id="cam-area" class="hidden">
       <video id="video" autoplay playsinline muted></video>
       <div class="row">
         <button type="button" class="btn primary" id="btn-shot">📸 촬영하기</button>
@@ -229,56 +120,59 @@
       </div>
     </div>
 
-    <div id="pick-area" style="margin-top:12px">
-      <button type="button" class="btn primary" id="btn-cam">📷 카메라로 사진 찍기</button>
-      <p class="muted">※ 카메라 사용 권한을 묻는 창이 나오면 <b>「허용」</b>을 눌러 주십시오.<br>
-        ※ 카카오톡 등 앱 안에서 열면 카메라가 작동하지 않을 수 있습니다. 이 경우 <b>크롬·사파리 등 인터넷 브라우저</b>로 다시 열어 주십시오.<br>
-        ※ PC 웹캠이 없거나 화질이 낮은 경우, 이 페이지를 휴대전화로 열어 촬영하시기 바랍니다.</p>
+    <div id="pick-area">
+      <button type="button" class="btn primary" id="btn-cam">📷 사진 촬영</button>
+      <p class="muted">※ 카메라 권한을 묻는 창이 나오면 「허용」을 눌러 주십시오. 카카오톡 등 앱 안에서 카메라가 작동하지 않으면 크롬·사파리로 다시 열어 주십시오.</p>
     </div>
 
-    <div id="preview-area" class="hidden" style="margin-top:12px">
+    <div id="preview-area" class="hidden">
       <canvas id="preview"></canvas>
-      <button type="button" class="btn ghost" id="btn-retake">↺ 다시 촬영하기</button>
+      <button type="button" class="btn ghost" id="btn-retake">↺ 다시 촬영</button>
       <label class="check need" data-check>
         <input type="checkbox" id="c-masked">
-        <span>촬영된 사진에서 <b>① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리만 보이고 나머지는 가려진 것</b>을 직접 확인하였습니다. <span class="checkme">체크해주세요!!</span></span>
+        <span>①②③만 보이고 나머지는 가려진 것을 확인하였습니다. <span class="checkme">체크</span></span>
       </label>
     </div>
   </section>
 
-  <!-- 4. 동의 -->
-  <section class="card" id="sec-consent">
-    <h2><span class="step">4</span>개인정보 수집·이용 동의</h2>
-
-    <table class="notice">
-      <tr><th>수집·이용 목적</th><td>실시간(Zoom) 보수교육 수강생 본인 확인 및 대리수강 방지(출결 확인)</td></tr>
-      <tr><th>수집 항목</th><td>성명, 생년월일(6자리), 주민등록번호 뒷자리 첫째 자리(성별 확인), 신분증 사진(얼굴 사진·성 첫 글자·생년월일 앞 2자리 외 가림), 서명, 제출 일시</td></tr>
-      <tr><th>보유·이용 기간</th><td><b style="color:var(--danger)">제출 당일 18시 일괄 삭제(파기)</b></td></tr>
-      <tr><th>보관 장소</th><td>협회 Google 공유드라이브(Google LLC, 국외 소재 서버) – 담당자 외 접근 제한</td></tr>
-      <tr><th>동의 거부 권리</th><td>동의를 거부할 수 있습니다. 거부 시 Zoom 화면을 통한 담당자 대조 확인으로 대체하며, 이 경우 교육 담당자에게 말씀해 주십시오.</td></tr>
-    </table>
+  <!-- 3. 확인사항 -->
+  <section class="card" id="sec-notice">
+    <h2><span class="step">3</span>꼭 확인해 주십시오</h2>
+    <ul class="notice">
+      <li>신분증 확인은 <b>보수교육 운영 지침상 필수</b> 절차입니다.</li>
+      <li>수집 항목: <b>성명, 생년월일 6자리, 뒷자리 첫째 자리, 신분증 사진(①②③ 외 가림), 서명, 제출 일시</b></li>
+      <li>수집 목적: <b>보수교육 출석 및 본인 확인</b></li>
+      <li>보유 기간: <b>제출 당일 18시에 일괄 삭제(파기)</b>됩니다.</li>
+      <li>보관 장소: 협회 Google 공유드라이브(국외 소재 서버)에 일시 보관되며, 담당자만 열람합니다.</li>
+      <li>동의를 거부할 수 있으며, 이 경우 교육 담당자에게 말씀하시면 다른 방법으로 확인합니다.</li>
+      <li>모바일 신분증의 화면 캡처는 인정되지 않습니다. <b>실물 신분증</b>을 준비해 주십시오.</li>
+    </ul>
 
     <label class="check need" data-check>
       <input type="checkbox" id="c-consent">
-      <span>[필수] 위와 같이 개인정보를 수집·이용하는 것에 동의합니다. <span class="checkme">체크해주세요!!</span></span>
+      <span>[필수] 위와 같이 개인정보를 수집·이용하는 것에 동의합니다. <span class="checkme">체크</span></span>
     </label>
     <label class="check need" data-check>
-      <input type="checkbox" id="c-delete">
-      <span>[필수] <b>신분증 사진 등 개인정보를 수집한다는 사실을 알고 있으며, 제출 당일 18시에 일괄 삭제 처리됨</b>을 확인하였습니다. <span class="checkme">체크해주세요!!</span></span>
+      <input type="checkbox" id="c-notice">
+      <span>[필수] 위 안내사항(당일 18시 일괄 삭제 포함)을 모두 확인하였습니다. <span class="checkme">체크</span></span>
     </label>
-    <label class="check need" data-check>
-      <input type="checkbox" id="c-proxy">
-      <span>[필수] 대리수강·대리출석이 확인될 경우 <b>평점 인정 불가 및 수강료 환불 불가</b> 처리됨을 확인하였습니다. <span class="checkme">체크해주세요!!</span></span>
-    </label>
+
+    <details>
+      <summary>근거 보기</summary>
+      <ul>
+        <li>「사회복지사업법」 제13조제2항 – 사회복지법인·시설 종사 사회복지사의 보수교육 의무</li>
+        <li>「2026 사회복지사 보수교육 운영 안내」 32쪽 – 매 과목 출석 확인과 함께 신분증 확인(1회 이상) 필수</li>
+        <li>같은 안내 39쪽 – 교육 실시기관은 매 과목별 출석을 확인하고 1회 이상 수강생 신분증을 확인해야 함</li>
+        <li>같은 안내 40쪽 – 실시간교육(zoom, teams 등)도 평점 인정 교육에 포함</li>
+        <li>「개인정보 보호법」 제15조(동의), 제16조(최소 수집), 제21조(파기), 제24조의2(주민등록번호 미수집)</li>
+      </ul>
+    </details>
   </section>
 
-  <!-- 5. 서명 -->
+  <!-- 4. 서명 -->
   <section class="card" id="sec-sign">
-    <h2><span class="step">5</span>본인 서명</h2>
-    <div class="alert warn">
-      <strong>본인은 개인정보가 수집된다는 사실을 알고 있으며, 수집된 정보는 당일 18시에 일괄 삭제 처리됨을 확인하고 직접 서명합니다.</strong>
-    </div>
-    <p class="muted">아래 칸에 손가락 또는 마우스로 <b>본인이 직접</b> 서명해 주십시오. (대리 서명 불가)</p>
+    <h2><span class="step">4</span>서명</h2>
+    <p class="rule" style="font-weight:600">본인은 개인정보 수집 사실과 당일 18시 일괄 삭제를 확인하고 직접 서명합니다.</p>
     <div class="sig-box">
       <canvas id="sig"></canvas>
       <div class="sig-hint" id="sig-hint">여기에 서명해 주십시오</div>
@@ -286,15 +180,17 @@
     <button type="button" class="btn ghost" id="btn-sig-clear">서명 지우기</button>
   </section>
 
-  <!-- 6. 제출 -->
+  <!-- 5. 제출 -->
   <section class="card" id="sec-submit">
-    <h2><span class="step">6</span>제출</h2>
     <div id="todo" class="alert danger"></div>
-    <div class="alert danger">
-      <span class="big">⚠ 예시 사진처럼 촬영하셨습니까?</span><br>
-      <b>① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리</b>만 보이는지 다시 한 번 확인하신 후 [제출하기]를 눌러 주십시오.
-    </div>
     <button type="button" class="btn submit" id="btn-submit" disabled>제출하기</button>
+    <div id="confirm-box" class="alert danger hidden">
+      <div class="big">①②③만 보이게 촬영하셨습니까?</div>
+      <div class="row">
+        <button type="button" class="btn submit" id="btn-confirm">예, 제출합니다</button>
+        <button type="button" class="btn ghost" id="btn-cancel">다시 확인</button>
+      </div>
+    </div>
   </section>
 
   <section class="card result hidden" id="sec-done">
@@ -306,26 +202,21 @@
     </div>
   </section>
 
-  <footer>
-    부산광역시사회복지사협회 · 문의 051-507-1285<br>
-    본 페이지는 신분증 원본 이미지를 브라우저에서 확인서 형태로 변환하여 협회 공유드라이브에만 전송합니다.
-  </footer>
+  <footer>부산광역시사회복지사협회 · 문의 051-507-1285</footer>
 </div>
 
 <script>
 /* ====================================================================
-   설정: Apps Script 웹 앱 배포 후 발급되는 URL을 입력하십시오.
+   설정: Apps Script 웹 앱 배포 URL
    ==================================================================== */
 const GAS_URL = 'https://script.google.com/macros/s/AKfycby-uUV-fk2o1S-0EzdggO7_koWMqE0Yffdnnjvs2KN8582hUFYzr06ZVNKsNZMmvPwwBQ/exec';
-
-/* 운영 시간 기준(삭제 시각) – 안내 문구용 */
 const DELETE_HOUR = 18;
 
 (function(){
   'use strict';
   const $ = (id) => document.getElementById(id);
 
-  /* ---------- 체크박스 강조 표시 ---------- */
+  /* ---------- 체크박스 강조 ---------- */
   document.querySelectorAll('[data-check]').forEach(function(lb){
     const cb = lb.querySelector('input');
     cb.addEventListener('change', function(){
@@ -352,7 +243,7 @@ const DELETE_HOUR = 18;
 
   $('btn-cam').addEventListener('click', async function(){
     if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-      alertMsg('이 브라우저에서는 카메라를 사용할 수 없습니다. 크롬·사파리 등 인터넷 브라우저로 다시 열어 주시거나, 교육 담당자에게 문의해 주십시오.');
+      alertMsg('이 브라우저에서는 카메라를 사용할 수 없습니다. 크롬·사파리로 다시 열어 주시거나 교육 담당자에게 문의해 주십시오.');
       return;
     }
     try{
@@ -361,7 +252,7 @@ const DELETE_HOUR = 18;
       $('cam-area').classList.remove('hidden');
       $('pick-area').classList.add('hidden');
     }catch(e){
-      alertMsg('카메라 권한이 거부되었거나 카메라를 찾을 수 없습니다. 브라우저 설정에서 카메라 권한을 「허용」으로 바꾼 뒤 다시 시도하시거나, 교육 담당자에게 문의해 주십시오.');
+      alertMsg('카메라 권한이 거부되었거나 카메라를 찾을 수 없습니다. 브라우저 설정에서 카메라 권한을 「허용」으로 바꾼 뒤 다시 시도해 주십시오.');
     }
   });
   $('btn-cam-close').addEventListener('click', stopCam);
@@ -372,22 +263,18 @@ const DELETE_HOUR = 18;
   }
   $('btn-shot').addEventListener('click', function(){
     if(!video.videoWidth) return;
-    drawToPreview(video, video.videoWidth, video.videoHeight);
-    stopCam();
-  });
-
-  function drawToPreview(src, w, h){
-    const MAX = 1600;
+    const MAX = 1600, w = video.videoWidth, h = video.videoHeight;
     const r = Math.min(1, MAX / Math.max(w,h));
     preview.width = Math.round(w*r); preview.height = Math.round(h*r);
-    preview.getContext('2d').drawImage(src, 0, 0, preview.width, preview.height);
+    preview.getContext('2d').drawImage(video, 0, 0, preview.width, preview.height);
     hasPhoto = true;
+    stopCam();
     $('preview-area').classList.remove('hidden');
     $('pick-area').classList.add('hidden');
     resetCheck('c-masked');
     validate();
     preview.scrollIntoView({behavior:'smooth', block:'center'});
-  }
+  });
   $('btn-retake').addEventListener('click', function(){
     hasPhoto = false;
     $('preview-area').classList.add('hidden');
@@ -435,21 +322,18 @@ const DELETE_HOUR = 18;
   /* ---------- 검증 ---------- */
   function validate(){
     const todo = [];
-    if(!$('c-basis').checked) todo.push('1단계: 근거 확인 체크');
-    if($('name').value.trim().length < 2) todo.push('2단계: 성명 입력');
-    if(!validBirth($('birth').value)) todo.push('2단계: 생년월일 6자리 입력');
-    if(!/^[1-8]$/.test($('gender').value)) todo.push('2단계: 뒷자리 첫째 자리 입력');
-    if(!hasPhoto) todo.push('3단계: 신분증 촬영');
-    else if(!$('c-masked').checked) todo.push('3단계: 가림 여부 직접 확인 체크');
-    if(!$('c-consent').checked) todo.push('4단계: 개인정보 수집·이용 동의 체크');
-    if(!$('c-delete').checked) todo.push('4단계: 수집 사실 및 18시 삭제 확인 체크');
-    if(!$('c-proxy').checked) todo.push('4단계: 대리수강 불이익 확인 체크');
-    if(!hasSig) todo.push('5단계: 본인 서명');
+    if($('name').value.trim().length < 2) todo.push('성명 입력');
+    if(!validBirth($('birth').value)) todo.push('생년월일 6자리 입력');
+    if(!/^[1-8]$/.test($('gender').value)) todo.push('뒷자리 첫째 자리 입력');
+    if(!hasPhoto) todo.push('신분증 촬영');
+    else if(!$('c-masked').checked) todo.push('사진 가림 확인 체크');
+    if(!$('c-consent').checked) todo.push('개인정보 수집·이용 동의 체크');
+    if(!$('c-notice').checked) todo.push('안내사항 확인 체크');
+    if(!hasSig) todo.push('서명');
     const box = $('todo');
     if(todo.length){
       box.className = 'alert danger';
-      box.innerHTML = '<strong>아직 완료되지 않은 항목이 있습니다. 체크해주세요!!</strong><ul style="margin:6px 0 0;padding-left:20px">' +
-        todo.map(t=>'<li>'+t+'</li>').join('') + '</ul>';
+      box.innerHTML = '<strong>남은 항목:</strong> ' + todo.join(' · ');
     } else {
       box.className = 'alert ok';
       box.innerHTML = '<strong>모든 항목이 완료되었습니다.</strong>';
@@ -468,30 +352,22 @@ const DELETE_HOUR = 18;
     const photoW = W - M*2;
     const photoH = Math.round(preview.height * (photoW / preview.width));
     const sigH = 220;
-    const H = 520 + photoH + 60 + sigH + 140;
+    const H = 470 + photoH + 60 + sigH + 140;
     const c = document.createElement('canvas'); c.width = W; c.height = H;
     const g = c.getContext('2d');
     const FONT = '"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif';
     g.fillStyle = '#fff'; g.fillRect(0,0,W,H);
     g.fillStyle = '#7a1f5c'; g.fillRect(0,0,W,110);
     g.fillStyle = '#fff'; g.font = 'bold 44px '+FONT; g.fillText('실시간 보수교육 신분증 확인서', M, 72);
-    g.fillStyle = '#111'; g.font = '30px '+FONT;
     let y = 170;
-    const rows = [
-      ['성명', data.name],
-      ['생년월일', data.birth + ' - ' + data.gender + '●●●●●●'],
-      ['제출일시', data.submittedAt],
-    ];
-    rows.forEach(function(r){
+    [['성명', data.name], ['생년월일', data.birth + ' - ' + data.gender + '●●●●●●'], ['제출일시', data.submittedAt]].forEach(function(r){
       g.fillStyle = '#5b6475'; g.font = 'bold 28px '+FONT; g.fillText(r[0], M, y);
       g.fillStyle = '#111'; g.font = '30px '+FONT; g.fillText(r[1], M+190, y);
       y += 52;
     });
     g.fillStyle = '#1b7f3b'; g.font = 'bold 24px '+FONT;
-    ['✔ 근거 확인', '✔ 가림 확인', '✔ 수집·이용 동의', '✔ 18시 삭제 확인', '✔ 대리수강 불이익 확인'].forEach(function(t,i){
-      g.fillText(t, M + (i%3)*380, y + Math.floor(i/3)*40);
-    });
-    y += 100;
+    g.fillText('✔ 가림 확인    ✔ 수집·이용 동의    ✔ 안내사항 확인(당일 ' + DELETE_HOUR + '시 삭제)', M, y);
+    y += 50;
     g.fillStyle = '#c62828'; g.font = 'bold 24px '+FONT;
     g.fillText('※ 본 자료는 제출 당일 ' + DELETE_HOUR + '시에 일괄 삭제(파기)됩니다.', M, y);
     y += 30;
@@ -506,26 +382,32 @@ const DELETE_HOUR = 18;
     g.drawImage(sig, M + (photoW - sw)/2, y + (sigH - sh)/2, sw, sh);
     y += sigH + 50;
     g.fillStyle = '#333'; g.font = '22px '+FONT;
-    g.fillText('본인은 개인정보가 수집된다는 사실을 알고 있으며,', M, y);
-    g.fillText('당일 ' + DELETE_HOUR + '시 일괄 삭제됨을 확인하고 직접 서명하였습니다.', M, y + 34);
+    g.fillText('본인은 개인정보 수집 사실과 당일 ' + DELETE_HOUR + '시 일괄 삭제를 확인하고 직접 서명하였습니다.', M, y);
     return c.toDataURL('image/jpeg', 0.85);
   }
 
   /* ---------- 제출 ---------- */
-  $('btn-submit').addEventListener('click', async function(){
+  $('btn-submit').addEventListener('click', function(){
     if(!validate()) return;
-    if(GAS_URL.indexOf('여기에_배포ID') !== -1){ alertMsg('관리자 설정이 완료되지 않았습니다. (Apps Script URL 미설정)'); return; }
-    const ok = window.confirm('예시 사진처럼 ① 얼굴 사진 ② 성 첫 글자 ③ 생년월일 앞 2자리만 보이고\n나머지는 모두 가리고 촬영하셨습니까?\n[확인]을 누르면 제출됩니다.');
-    if(!ok) return;
+    $('btn-submit').classList.add('hidden');
+    $('confirm-box').classList.remove('hidden');
+  });
+  $('btn-cancel').addEventListener('click', function(){
+    $('confirm-box').classList.add('hidden');
+    $('btn-submit').classList.remove('hidden');
+    $('sec-photo').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  $('btn-confirm').addEventListener('click', async function(){
+    if(!validate()) return;
     const btn = this;
-    btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span>제출 중입니다…';
+    btn.disabled = true; $('btn-cancel').disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>제출 중…';
     const data = {
       name: $('name').value.trim(),
       birth: $('birth').value,
       gender: $('gender').value,
       submittedAt: nowStr(new Date()),
-      consents: { basis:true, masked:true, consent:true, deleteNotice:true, proxy:true }
+      consents: { masked:true, consent:true, notice:true }
     };
     try{
       data.image = buildSheet(data);
@@ -538,13 +420,12 @@ const DELETE_HOUR = 18;
       if(!json.ok) throw new Error(json.message || '제출 실패');
       $('receipt').textContent = json.receipt;
       document.querySelectorAll('section.card').forEach(s => s.classList.add('hidden'));
-      document.querySelectorAll('.wrap > .alert').forEach(s => s.classList.add('hidden'));
       $('sec-done').classList.remove('hidden');
       window.scrollTo({top:0, behavior:'smooth'});
     }catch(e){
-      alertMsg('제출 중 오류가 발생하였습니다. 잠시 후 다시 시도하시거나 교육 담당자에게 문의해 주십시오.\n(' + e.message + ')');
-      btn.disabled = false;
-      btn.textContent = '제출하기';
+      alertMsg('제출 중 오류가 발생하였습니다. 잠시 후 다시 시도하시거나 교육 담당자에게 문의해 주십시오. (' + e.message + ')');
+      btn.disabled = false; $('btn-cancel').disabled = false;
+      btn.textContent = '예, 제출합니다';
     }
   });
 
